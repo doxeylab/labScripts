@@ -31,3 +31,8 @@ for n in 10 50 100 500 1000 5000 10000; do
 done
 
 ```
+
+On an example simulated genome, this produced the following result:
+
+<img width="837" height="573" alt="image" src="splitORFsvsRandErrors.jpg" />
+
