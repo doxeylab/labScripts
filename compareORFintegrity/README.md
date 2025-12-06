@@ -17,3 +17,17 @@ asm2: 10 (self-unique) genes map to >=2 genes in asm1
 ```
 
 Theoretically, we should see more self-unique ORFs from genome 1 that map to two or more ORFs in genome 2.
+
+## Testing workflow on simulated set genomes with varying levels of homopolymer-induced frameshifts
+
+To test the above program, we can do:
+
+```
+# this will generate a set of 7 pseudogenomes where n = 10, 50, 100, 500, 1000, 5000, and 10000 homopolymer errors have been introduced to genome.fa 
+python make_polyA_insertion_genomes.py genome.fa -o testgenome --seed $RANDOM
+
+for n in 10 50 100 500 1000 5000 10000; do
+    bash compare_orf_integrity.sh genome.fa testgenome.polyA_${n}.fa
+done
+
+```
